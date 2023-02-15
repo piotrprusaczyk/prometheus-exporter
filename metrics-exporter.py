@@ -21,17 +21,17 @@ class CustomCollector(object):
         # Get the disk usage
         disk_usage = psutil.disk_usage('/')
         metric_disk = Metric('disk_usage', 'Disk Usage', 'gauge')
-        metric_disk.add_sample('disk_usage_total', value=disk_usage.total/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_used', value=disk_usage.used/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_free', value=disk_usage.free/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_total/', value=disk_usage.total/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_used/', value=disk_usage.used/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_free/', value=disk_usage.free/1024/1024/1024, labels={})
         yield metric_disk
      
         # Get the disk usage
         disk_usage = psutil.disk_usage('/mnt/disks/psql-data')
         metric_disk = Metric('disk_usage', 'Disk Usage', 'gauge')
-        metric_disk.add_sample('disk_usage_total', value=disk_usage.total/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_used', value=disk_usage.used/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_free', value=disk_usage.free/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_total_postgres', value=disk_usage.total/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_used_postgres', value=disk_usage.used/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_free_postgres', value=disk_usage.free/1024/1024/1024, labels={})
         yield metric_disk
 
 if __name__ == '__main__':
