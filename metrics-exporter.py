@@ -27,11 +27,11 @@ class CustomCollector(object):
         yield metric_disk
      
         # Get the disk usage
-        disk_usage = psutil.disk_usage('/mnt/disks/psql-data')
+        disk_usage_postgresql = psutil.disk_usage('/mnt/disks/psql-data')
         metric_disk = Metric('disk_usage', 'Disk Usage', 'gauge')
-        metric_disk.add_sample('disk_usage_total_postgres', value=disk_usage.total/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_used_postgres', value=disk_usage.used/1024/1024/1024, labels={})
-        metric_disk.add_sample('disk_usage_free_postgres', value=disk_usage.free/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_total_postgres', value=disk_usage_postgresql.total/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_used_postgres', value=disk_usage_postgresql.used/1024/1024/1024, labels={})
+        metric_disk.add_sample('disk_usage_free_postgres', value=disk_usage_postgresql.free/1024/1024/1024, labels={})
         yield metric_disk
 
 if __name__ == '__main__':
