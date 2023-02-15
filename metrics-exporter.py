@@ -43,5 +43,5 @@ if __name__ == '__main__':
 
     # Run the server forever
     while True:
-        pass
+        time.sleep(60)
 
